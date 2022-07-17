@@ -36,4 +36,4 @@ Then run *runClient*. You can hit Play after this instead of *runClient*
 
 ![Eclipse Gradle Run Client](https://i.imgur.com/FJOVrcn.png)
 
-//TODO show screenshot of minecraft starting
+**Let's make sure we can get minecraft started before continuing**
