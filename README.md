@@ -4,21 +4,23 @@ Minecraft is the beloved game by many kids and adults like me for doing almost a
 Based on Modding by Kaupenjoe’s [tutorial for v1.19 of Minecraft](https://www.youtube.com/watch?v=LpoSy091wYI&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl)
 
 Prerequisites:
-
 -   Download and install Minecraft - java edition v1.19: use microsoft store
-    
 -   Download [JDK version 17](https://adoptium.net/temurin/releases/?version=17)
-    
 -   Download and install either IntelliJ (preferred), Eclipse, or Visual Studio Code
+-   Helpful to know Git for downloading tutorial files
 ## Download Forge 1.19
+
 -   Download Forge zip from my [google drive](https://drive.google.com/drive/folders/10EA8TrcMEiE2hjJkNC0sB3BwYUyGtYVj?usp=sharing)
-    
 -   You can download other versions from [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/) directly but it’s very spammy
-    
--   Unzip, rename, and put in workspace
-    
--   Open project with editor of choice
+- Unzip, rename, and put in workspace
+- Delete any .txt files
+- Open project with editor of choice (Eclipse needs File > Import > Gradle > Existing Gradle Project)
 ## Build With Gradle
+
+Gradle might start building when opening project
+
+![Gradle finished building](https://i.imgur.com/uN2mXkB.png)
+
 Eclipse Gradle Build
 
 ![Eclipse Gradle Build](https://i.imgur.com/xx5C21y.png)
@@ -36,4 +38,6 @@ Then run *runClient*. You can hit Play after this instead of *runClient*
 
 ![Eclipse Gradle Run Client](https://i.imgur.com/FJOVrcn.png)
 
-**Let's make sure we can get minecraft started before continuing**
+**Let's make sure we can get minecraft started before continuing.** This is the default example mod we will be replacing
+
+![Minecraft running with Example Mod](https://i.imgur.com/r3OnICr.png)
