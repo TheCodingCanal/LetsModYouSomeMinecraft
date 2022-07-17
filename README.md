@@ -107,6 +107,10 @@ ITEMS.register(modEventBus);
 - Change the Mod Id
 - Rename file. Click on file and hit Shift + F6 or Right click > Refactor > Rename
 ![Renaming File](https://i.imgur.com/pj7J5Bj.png)
+- Change the package name from com.example.examplemod to your package name. Rename directories and delete out old directories
+
+![Renaming Directories](https://i.imgur.com/La05Ir1.png)
+
 
 ### The mods.toml file
 - In src > main > resources > META-INF > mods.toml
