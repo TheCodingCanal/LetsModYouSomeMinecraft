@@ -1,4 +1,4 @@
-package com.example.zirconmod;
+package com.codingcanal.zirconmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
