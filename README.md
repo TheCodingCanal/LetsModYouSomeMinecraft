@@ -20,10 +20,20 @@ Prerequisites:
 -   Open project with editor of choice
 ## Build With Gradle
 Eclipse Gradle Build
+
 ![Eclipse Gradle Build](https://i.imgur.com/xx5C21y.png)
+
 IntelliJ Gradle Build
+
 ![IntelliJ Gradle Tab](https://i.imgur.com/uBOPdai.png)
 ![GenIntelliJRuns](https://i.imgur.com/v0GXMjc.png)
+
 Can run these from command line as well
 
     ./gradlew genEclipseRuns or ./gradlew genVSCodeRuns or ./gradlew genIntellijRuns
+
+Then run *runClient*. You can hit Play after this instead of *runClient*
+
+![Eclipse Gradle Run Client](https://i.imgur.com/FJOVrcn.png)
+
+//TODO show screenshot of minecraft starting
