@@ -11,15 +11,19 @@ Prerequisites:
 - Download and install Minecraft - java edition v1.19: use microsoft store
 - Download [JDK version 17](https://adoptium.net/temurin/releases/?version=17)
 - Download and install either IntelliJ (preferred), Eclipse, or Visual Studio Code
+    - If using Eclipse you might need to [install a plugin](https://github.com/sebthom/extra-syntax-highlighting-eclipse-plugin) for editing json files with good syntax highlighting 
 - Helpful to know Git for downloading tutorial files
 - I would highly suggest a clipboard manager like the built in one to windows or Ditto
 ## Download Forge 1.19
+Different options to get the forge files:
+- Git clone from this repo using branch 2-BuildWithGradle
+- Download Forge zip from my [google drive](https://drive.google.com/drive/folders/10EA8TrcMEiE2hjJkNC0sB3BwYUyGtYVj?usp=sharing)
+- You can download other versions from [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/) directly but it’s very spammy
 
--   Download Forge zip from my [google drive](https://drive.google.com/drive/folders/10EA8TrcMEiE2hjJkNC0sB3BwYUyGtYVj?usp=sharing)
--   You can download other versions from [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/) directly but it’s very spammy
-- Unzip, rename, and put in workspace
-- Delete any .txt files
-- Open project with editor of choice (Eclipse needs File > Import > Gradle > Existing Gradle Project)
+After you get the files:
+1. Unzip, rename, and put in workspace
+2. Delete any .txt files
+3. Open project with editor of choice (Eclipse needs File > Import > Gradle > Existing Gradle Project)
 ## Build With Gradle
 
 Gradle might start building when opening project
@@ -75,15 +79,15 @@ IntelliJ
 
 ## Building Our Mod
 ### The build.gradle file
-- In parent directory
-- Change version number
-- Change the group name
-- Change the Mod Id and ArchiveBaseName. **Mod Id must be all lowercase, can contain numbers, hyphen, and underscore, but no other special characters. Keep it simple!!**
-- Replace "examplemod" with "zirconmod"
+In parent directory
+1. Change version number
+2. Change the group name
+3. Change the Mod Id and ArchiveBaseName. **Mod Id must be all lowercase, can contain numbers, hyphen, and underscore, but no other special characters. Keep it simple!!**
+4. Replace "examplemod" with "zirconmod"
 
 ### The ExampleMod.java file
-- In src > main > java > your naming convention > modid > ExampleMod.java
-- Delete lines 37 through 44. We'll be setting up these functions in other classes to have better organization
+In src > main > java > your naming convention > modid > ExampleMod.java
+1. Delete lines 37 through 44. We'll be setting up these functions in other classes to have better organization
 
 ```
 public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
@@ -96,7 +100,7 @@ public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("examp
 public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 ```
 
-- Delete blocks and items regsiter
+2. Delete blocks and items regsiter
 ```
 // Register the Deferred Register to the mod event bus so blocks get registered
 BLOCKS.register(modEventBus);
@@ -104,29 +108,57 @@ BLOCKS.register(modEventBus);
 ITEMS.register(modEventBus);
 ```
 
-- Change the Mod Id
-- Rename file. Click on file and hit Shift + F6 or Right click > Refactor > Rename
+3. Change the Mod Id
+4. Rename file. Click on file and hit Shift + F6 or Right click > Refactor > Rename
 ![Renaming File](https://i.imgur.com/pj7J5Bj.png)
-- Change the package name from com.example.examplemod to your package name. Rename directories and delete out old directories
+5. Change the package name from com.example.examplemod to your package name. Rename packages and delete out old packages
 
 ![Renaming Directories](https://i.imgur.com/La05Ir1.png)
 
 
 ### The mods.toml file
-- In src > main > resources > META-INF > mods.toml
-- Change license. MIT License suggested
-- Change modId
-- Change version
-- Change displayName
-- Come back to this file before you publish this for other people and flesh out the extra details to have better documentation
+In src > main > resources > META-INF > mods.toml
+1. Change license. MIT License suggested
+2. Change modId
+3. Change version
+4. Change displayName
+5. Come back to this file before you publish this for other people and flesh out the extra details to have better documentation
 
 ### Hit Play and Publish
-- Hit Play! You've got your own mod!!!
+1. Hit Play! You've got your own mod!!!
 ![Your Mod](https://i.imgur.com/VbAYUMo.png)
-- To build for publishing
+2. To build for publishing
     - Gradle tab > Tasks > build > build
     - or put this into the terminal 
 ```
 ./gradlew build
 ```
-- Find jar file in build > libs folder
+3. Find jar file in build > libs folder
+
+## Adding our Zircon item
+### The ModItems file
+1. Add item package under zirconmod
+2. Add ModItems.java file and add to git if using that
+3. Add DeferredRegister ITEMS
+    - Rememeber to hit tab to autofill and auto add imports
+4. Register ITEMS on the eventBus
+5. Register ModItems on the modEventBus in ZirconMod.java
+6. Add RegistryObject ZIRCON
+    - Can add more items by copying this line
+    - Many many different properties to use to configure your items. We will come back to this
+    - ![So many properties](https://i.imgur.com/c9yFidw.png)
+7. Add RAW ZIRCON
+
+### Adding asset directories to our Resources
+1. Add directories to match this (might be easier to use File Explorer with Ctrl + Shift + N):
+    - ![Asset directories](https://i.imgur.com/ayWIIiJ.png)
+2. Add en_us.json in lang folder
+    - Add zircon and raw zircon's display names
+3. Add zircon.json in models > item folder
+    - Configure texture
+4. Add raw_zircon.json in same folder by copying it (select and hit F5)
+5. Add texture files as png's:
+    - Use those provided in this repo
+    - Can make your own an online editor like [Nova Skin](https://minecraft.novaskin.me/resourcepacks)
+    - Or use the External Libraries (Gradle: net.minecraft.client.extra > client-extra.jar > assets > minecraft > textures) and then use Paint, Gimp, etc to edit
+        - ![Exteranl Libraries textures](https://i.imgur.com/Aw03Xxc.png)
