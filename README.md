@@ -142,6 +142,8 @@ Come back to this file before you publish this for other people and flesh out th
 ```
 3. Find jar file in build > libs folder
 
+At this point your project should look something like branch [2-BuildingOurMod](https://github.com/TheCodingCanal/KryptoniteMod/tree/2-BuildingOurMod)
+
 ## Adding our kryptonite ingot
 ### The ModItems file
 1. Add item package under kryptonitemod
@@ -170,6 +172,8 @@ Come back to this file before you publish this for other people and flesh out th
     - Or use the External Libraries (Gradle: net.minecraft.client.extra > client-extra.jar > assets > minecraft > textures) and then use Paint, Gimp, etc to edit
         - ![Exteranl Libraries textures](https://i.imgur.com/Aw03Xxc.png)
 6. Let's test it out!
+
+At this point your project should look something like branch [3-AddingKryptoniteIngots](https://github.com/TheCodingCanal/KryptoniteMod/tree/3-AddingKryptoniteItems)
 
 ## Adding Kryptonite Blocks
 ### The ModBlocks.java file
@@ -202,5 +206,39 @@ Come back to this file before you publish this for other people and flesh out th
 Make sure assets looks like this
 ![Assets for blocks](https://i.imgur.com/HHYE9ur.png)
 
-Let's run it. If you have any errors you might see a black and pink checkered texture like this
+Let's run it.
+Possible errors: 
+- Texture works when placed in world but not in inventory > item model json
+- Texture works in inventory but not when placed in world > check blockstates json
 ![Error in code texture](https://i.imgur.com/2DlLXt3.png)
+- Doesn't work anywhere. Could be in any of the json files or a bad directory setup and you might have multiple errors
+
+For more ideas and examples look at the external libraries and copy and extend existing blocks
+
+At this point your project should look something like branch [4-AddingKryptoniteBlocks](https://github.com/TheCodingCanal/KryptoniteMod/tree/4-AddingKryptoniteBlocks)
+
+## Recipes and Loot
+### Add Data with Recipes
+1. Add data folder with subfolders like this:
+    - ![data folders](https://i.imgur.com/ayKlR2w.png)
+2. Add crafting recipe for kryptonite block
+    - pattern can use any key you want and can include multiple items
+3. Add other recipes for smelting, blasting, and turning blocks back into ingots
+
+### Loot Tables
+1. Add blocks folder under loot tables
+2. Add files for each block
+    - [Wiki doc for loot table](https://minecraft.fandom.com/wiki/Loot_table)
+    - Ores act differently if you have silk touch or just a regular pickaxe
+
+### Adding tags
+1. Setup folders under data folder to match this:
+    - ![folder structure for tags](https://i.imgur.com/oZKOPgP.png)
+2. Add needs_iron_tool.json under blocks folder
+    - you might want to later add files for diamond and stone tools
+3. Add pickaxe.json under mineable folder
+    - you might want to later add files for other tools (shovel, axe, hoe, shears, etc)
+
+Lets test it out. Mine some ore, smelt it, craft a block
+
+At this point your project should look something like branch [5-RecipesAndLoot](https://github.com/TheCodingCanal/KryptoniteMod/tree/5-RecipesAndLoot)
