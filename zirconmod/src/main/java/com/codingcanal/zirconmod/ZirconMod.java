@@ -1,5 +1,6 @@
 package com.codingcanal.zirconmod;
 
+import com.codingcanal.zirconmod.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
@@ -26,7 +27,7 @@ public class ZirconMod
     public ZirconMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        ModItems.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
