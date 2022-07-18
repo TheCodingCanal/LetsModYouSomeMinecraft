@@ -2,7 +2,7 @@
 
 Minecraft is the beloved game by many kids and adults like me for doing almost anything you want in a low res world. The modding community took that idea even further and allowed players to do even more. I love playing modpacks like Feed The Beast that combine a bunch of great mods that give you the ability to cast magic with ruins, travel to other planes, make nuclear reactors, and so much more. Maybe you’ve thought about some cool stuff you’d like to have or do in minecraft to make it even more fun. Well now you can by making your own mod. We’re going to be making our own simple mod, which will set the stage for you to build your own blocks, crafting recipes, tools, armor, mobs, game rules, etc. There’s a lot that we need to do to get to the point of playing our mod and I will guide you step by step in this workshop.
 
-## Zircon Mod
+## Kryptonite Mod
 Based on Modding by Kaupenjoe’s [tutorial for v1.19 of Minecraft](https://www.youtube.com/watch?v=LpoSy091wYI&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl)
 
 **We're going to jump into the tutorial so we can get everything running and downloading while I give my intro**
@@ -61,7 +61,7 @@ Then run *runClient*. You can hit Play after this instead of *runClient*
 - Cyclist
 - Player of modded minecraft
 
-Our mod is based on the zircon gem. You can replace that with whatever you'd like and make your own mod.
+Our mod is based on the kryptonite gem. You can replace that with whatever you'd like and make your own mod.
 
 ## Setting up IDE (IntelliJ)
 
@@ -83,10 +83,10 @@ In parent directory
 1. Change version number
 2. Change the group name
 3. Change the Mod Id and ArchiveBaseName. **Mod Id must be all lowercase, can contain numbers, hyphen, and underscore, but no other special characters. Keep it simple!!**
-4. Replace "examplemod" with "zirconmod"
+4. Replace "examplemod" with "kryptonitemod"
 
 ### The ExampleMod.java file
-In src > main > java > your naming convention > modid > ExampleMod.java
+Navigate to src > main > java > com.example.examplemod > ExampleMod.java
 1. Delete lines 37 through 44. We'll be setting up these functions in other classes to have better organization
 
 ```
@@ -110,10 +110,10 @@ ITEMS.register(modEventBus);
 
 3. Change the Mod Id
 4. Rename file. Click on file and hit Shift + F6 or Right click > Refactor > Rename
-![Renaming File](https://i.imgur.com/pj7J5Bj.png)
+![Renaming File](https://i.imgur.com/5FyA94I.png)
 5. Change the package name from com.example.examplemod to your package name. Rename packages and delete out old packages
 
-![Renaming Directories](https://i.imgur.com/La05Ir1.png)
+![Renaming Directories](https://i.imgur.com/lqnwCSn.png)
 
 
 ### The mods.toml file
@@ -122,11 +122,12 @@ In src > main > resources > META-INF > mods.toml
 2. Change modId
 3. Change version
 4. Change displayName
-5. Come back to this file before you publish this for other people and flesh out the extra details to have better documentation
+
+Come back to this file before you publish this for other people and flesh out the extra details to have better documentation
 
 ### Hit Play and Publish
 1. Hit Play! You've got your own mod!!!
-![Your Mod](https://i.imgur.com/VbAYUMo.png)
+![Your Mod](https://i.imgur.com/LeivJwj.png)
 2. To build for publishing
     - Gradle tab > Tasks > build > build
     - or put this into the terminal 
@@ -135,28 +136,28 @@ In src > main > resources > META-INF > mods.toml
 ```
 3. Find jar file in build > libs folder
 
-## Adding our Zircon item
+## Adding our kryptonite ingot
 ### The ModItems file
-1. Add item package under zirconmod
+1. Add item package under kryptonitemod
 2. Add ModItems.java file and add to git if using that
 3. Add DeferredRegister ITEMS
     - Rememeber to hit tab to autofill and auto add imports
 4. Register ITEMS on the eventBus
-5. Register ModItems on the modEventBus in ZirconMod.java
-6. Add RegistryObject ZIRCON
+5. Register ModItems on the modEventBus in KryptoniteMod.java
+6. Add RegistryObject KRYPTONITE
     - Can add more items by copying this line
     - Many many different properties to use to configure your items. We will come back to this
-    - ![So many properties](https://i.imgur.com/c9yFidw.png)
-7. Add RAW ZIRCON
+    - ![So many properties](https://i.imgur.com/KSbzHAf.png)
+7. Add KRYPTONITE_INGOT
 
 ### Adding asset directories to our Resources
 1. Add directories to match this (might be easier to use File Explorer with Ctrl + Shift + N):
-    - ![Asset directories](https://i.imgur.com/ayWIIiJ.png)
+    - ![Asset directories](https://i.imgur.com/5mPEyov.png)
 2. Add en_us.json in lang folder
-    - Add zircon and raw zircon's display names
-3. Add zircon.json in models > item folder
+    - Add kryptonite_ingot and kryptonite's display names
+3. Add kryptonite.json in models > item folder
     - Configure texture
-4. Add raw_zircon.json in same folder by copying it (select and hit F5)
+4. Add kryptonite_ingot.json in same folder by copying it (select and hit F5)
 5. Add texture files as png's:
     - Use those provided in this repo
     - Can make your own an online editor like [Nova Skin](https://minecraft.novaskin.me/resourcepacks)
