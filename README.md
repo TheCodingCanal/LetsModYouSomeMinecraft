@@ -16,7 +16,7 @@ Prerequisites:
 - I would highly suggest a clipboard manager like the built in one to windows or Ditto
 ## Download Forge 1.19
 Different options to get the forge files:
-- Git clone from this repo using branch 2-BuildWithGradle
+- Git clone from this repo using [branch 1-BuildWithGradle](https://github.com/TheCodingCanal/KryptoniteMod/tree/1-BuildWithGradle)
 - Download Forge zip from my [google drive](https://drive.google.com/drive/folders/10EA8TrcMEiE2hjJkNC0sB3BwYUyGtYVj?usp=sharing)
 - You can download other versions from [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/) directly but it’s very spammy
 
@@ -52,6 +52,8 @@ Then run *runClient*. You can hit Play after this instead of *runClient*
 
 ![Minecraft running with Example Mod](https://i.imgur.com/r3OnICr.png)
 
+Let's create a new world as well.
+
 ## Introduction
 
 - Developer
@@ -62,6 +64,10 @@ Then run *runClient*. You can hit Play after this instead of *runClient*
 - Player of modded minecraft
 
 Our mod is based on the kryptonite gem. You can replace that with whatever you'd like and make your own mod.
+
+We'll be using Forge. Forge is a framework for building mods. An alternative would be [Fabric](https://fabricmc.net/) which is lighter weight but seems to have less mods using it.
+
+Pay attention to the version when looking at documentation and other tutorials/blogs. Things change and some info is no longer correct. Try to stick to recent sources that use 1.19 or 1.18.x
 
 ## Setting up IDE (IntelliJ)
 
@@ -143,7 +149,7 @@ Come back to this file before you publish this for other people and flesh out th
 3. Add DeferredRegister ITEMS
     - Rememeber to hit tab to autofill and auto add imports
 4. Register ITEMS on the eventBus
-5. Register ModItems on the modEventBus in KryptoniteMod.java
+5. Register ModItems on the modEventBus in **KryptoniteMod.java**
 6. Add RegistryObject KRYPTONITE
     - Can add more items by copying this line
     - Many many different properties to use to configure your items. We will come back to this
@@ -163,3 +169,38 @@ Come back to this file before you publish this for other people and flesh out th
     - Can make your own an online editor like [Nova Skin](https://minecraft.novaskin.me/resourcepacks)
     - Or use the External Libraries (Gradle: net.minecraft.client.extra > client-extra.jar > assets > minecraft > textures) and then use Paint, Gimp, etc to edit
         - ![Exteranl Libraries textures](https://i.imgur.com/Aw03Xxc.png)
+6. Let's test it out!
+
+## Adding Kryptonite Blocks
+### The ModBlocks.java file
+1. Add DeferredRegister BLOCKS
+2. Register BLOCKS on the event bus
+3. Register ModBlocks on the modEventBus in **KryptoniteMod.java**
+4. Create registerBlock function. These are helper functions
+5. Register block items as well. Blocks are items as well and need to be registered as such
+6. Call registerBlockItem method from registerBlock
+7. Register Kryptonite Block
+    - Many materials to choose from which give it the correct sounds and visuals
+    - Strength of 3f (float) sets how long it takes to mine
+    - Currently won't drop any items until we configure the loot json files
+    - ![Many properties to use](https://i.imgur.com/wZontXY.png)
+8. Register kryptonite ores
+    - Use DropExperienceBlock instead of regular
+    - Will give random amount experience between 3 and 6
+    - Feel free to change things up to test out these properties and methods
+
+### Kryptonite block assets
+1. Create kryptonite_block.json, kryptonite_ore.json, and deepslate_kryptonite_ore.json in blockstates
+    - This defines the different states and variants for your block
+    - More info can be found in the [Forge docs](https://docs.minecraftforge.net/en/1.12.x/models/using/#block-models)
+2. Create kryptonite_block.json, kryptonite_ore.json, and deepslate_kryptonite_ore.json in models > block
+    - Using a cube texture with a single texture file for all sides
+3. Create kryptonite_block.json, kryptonite_ore.json, and deepslate_kryptonite_ore.json in models > item
+    - refer to block model
+4. Add our blocks' display names to en_us.json in lang folder
+
+Make sure assets looks like this
+![Assets for blocks](https://i.imgur.com/HHYE9ur.png)
+
+Let's run it. If you have any errors you might see a black and pink checkered texture like this
+![Error in code texture](https://i.imgur.com/2DlLXt3.png)
